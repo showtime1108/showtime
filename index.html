@@ -255,6 +255,70 @@ footer {
 .footer-copy { font-size: 10px; color: rgba(255,255,255,0.2); }
 .footer-links { display: flex; gap: 20px; }
 .footer-links a { font-size: 10px; color: rgba(255,255,255,0.3); text-decoration: none; }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { padding: 0 16px; height: 56px; }
+  .nav-links { display: none; }
+  .logo-en { font-size: 14px; }
+  .nav-cta { padding: 7px 12px; font-size: 11px; }
+
+  .hero { padding: 48px 20px 48px; min-height: auto; }
+  .hero-accent { width: 100%; opacity: 0.12; }
+  .hero-accent::before { background: linear-gradient(to bottom, var(--navy) 30%, transparent); }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-en { font-size: 26px; }
+  .hero-jp { font-size: 12px; }
+  .hero-tagline { font-size: 14px; }
+  .hero-btns { flex-direction: column; gap: 10px; }
+  .btn-yellow, .btn-ghost { width: 100%; text-align: center; padding: 14px; font-size: 14px; }
+  .hero-stats { flex-wrap: wrap; gap: 16px; }
+  .hero-stats > div { min-width: calc(50% - 8px); }
+  .stat-num { font-size: 20px; }
+
+  section { padding: 48px 20px; }
+  .sec-title { font-size: 20px; }
+  .sec-sub { font-size: 13px; }
+
+  .mvv-grid { grid-template-columns: 1fr; gap: 12px; }
+  .svc-grid { grid-template-columns: 1fr; gap: 12px; }
+  .portfolio-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  .facility-grid { grid-template-columns: 1fr; gap: 20px; }
+  .facility-photos { grid-template-columns: 1fr; }
+  .facility-photo img { height: 200px; }
+  .facility-photo.wide img { height: 180px; }
+
+  .founder-grid { grid-template-columns: 1fr; gap: 40px; }
+  .founder-quote-box { position: relative; bottom: auto; left: auto; right: auto; margin-top: 14px; }
+  .founder-photo img { height: 280px; }
+  .founder-name { font-size: 18px; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+  .f-row2 { grid-template-columns: 1fr; }
+  .sns-row { flex-direction: column; }
+
+  .map-section { padding: 0 20px 48px; }
+  .map-wrap iframe { height: 240px; }
+  .map-info span { font-size: 12px; }
+
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 22px 16px; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+  .mission-banner { padding: 20px 16px; flex-direction: column; gap: 10px; }
+  .mission-banner-text p { font-size: 15px; }
+
+  .company-info-card { padding: 16px; }
+  .ci-row { gap: 8px; }
+  .ci-label { min-width: 52px; font-size: 9px; }
+  .ci-val { font-size: 11px; }
+}
+
+@media (max-width: 390px) {
+  .hero-en { font-size: 22px; }
+  .sec-title { font-size: 18px; }
+  .mvv-grid, .svc-grid, .portfolio-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -524,31 +588,30 @@ footer {
 function handleSubmit(e) {
   e.preventDefault();
   var form = e.target;
-  var name = form.querySelector('[name="お名前"]') ? form.querySelector('[name="お名前"]').value : '';
-  var belong = form.querySelector('[name="所属チーム名"]') ? form.querySelector('[name="所属チーム名"]').value : '';
-  var email = form.querySelector('[name="メールアドレス"]') ? form.querySelector('[name="メールアドレス"]').value : '';
-  var type = form.querySelector('[name="お問い合わせ種別"]') ? form.querySelector('[name="お問い合わせ種別"]').value : '';
-  var msg = form.querySelector('[name="メッセージ"]') ? form.querySelector('[name="メッセージ"]').value : '';
-  
-  var subject = encodeURIComponent('【Showtime HP】お問い合わせ：' + type);
-  var body = encodeURIComponent(
-    'お名前：' + name + '
-' +
-    '所属・チーム名：' + belong + '
-' +
-    '返信先メール：' + email + '
-' +
-    'お問い合わせ種別：' + type + '
+  var getName = function(n){ var el=form.querySelector('[name="'+n+'"]'); return el?el.value:''; };
+  var name   = getName('お名前');
+  var belong = getName('所属チーム名');
+  var email  = getName('メールアドレス');
+  var type   = getName('お問い合わせ種別');
+  var msg    = getName('メッセージ');
 
-' +
-    'メッセージ：
-' + msg
+  var subject = encodeURIComponent('【Showtime HP】' + type);
+  var body = encodeURIComponent(
+    'お名前：' + name + '\n' +
+    '所属・チーム名：' + belong + '\n' +
+    '返信先メール：' + email + '\n' +
+    'お問い合わせ種別：' + type + '\n\n' +
+    'メッセージ：\n' + msg
   );
-  
-  window.location.href = 'mailto:11showtime08@gmail.com?subject=' + subject + '&body=' + body;
-  
-  form.style.display = 'none';
-  document.getElementById('successMsg').style.display = 'block';
+
+  var mailUrl = 'mailto:11showtime08@gmail.com?subject=' + subject + '&body=' + body;
+  window.location.href = mailUrl;
+
+  setTimeout(function(){
+    form.style.display = 'none';
+    var msg2 = document.getElementById('successMsg');
+    if(msg2) msg2.style.display = 'block';
+  }, 500);
 }
 </script>
 </body>
