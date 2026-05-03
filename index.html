@@ -256,8 +256,33 @@ footer {
 .footer-links { display: flex; gap: 20px; }
 .footer-links a { font-size: 10px; color: rgba(255,255,255,0.3); text-decoration: none; }
 
+
+/* ShowUp連携ボタン */
+.btn-showup {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(135deg, #f5c518, #c9a00a);
+  color: #111; border: none; border-radius: 6px;
+  padding: 12px 22px; font-size: 14px; font-weight: 700;
+  cursor: pointer; text-decoration: none;
+  font-family: "Noto Sans JP", sans-serif;
+  letter-spacing: 0.04em; transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(245,197,24,0.35);
+}
+.btn-showup:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,197,24,0.5); }
+.nav-showup {
+  background: var(--yellow); color: #111 !important;
+  padding: 6px 14px; border-radius: 4px; font-weight: 700 !important;
+  font-size: 12px; transition: opacity 0.15s;
+}
+.nav-showup:hover { opacity: 0.85; }
+
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
+  /* ShowUp Banner mobile */
+  section[style*="background: var(--yellow)"] { padding: 20px 16px; }
+  section[style*="background: var(--yellow)"] > div { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .btn-showup { width: 100%; text-align: center; justify-content: center; }
+
   nav { padding: 0 16px; height: 56px; }
   .nav-links { display: none; }
   .logo-en { font-size: 14px; }
@@ -338,6 +363,7 @@ footer {
     <a href="#portfolio">実績</a>
     <a href="#founder">代表</a>
     <a href="#contact">お問い合わせ</a>
+    <a href="showup.html" class="nav-showup">専属サポート</a>
   </div>
   <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">お問い合わせ</button>
 </nav>
@@ -363,6 +389,19 @@ footer {
     </div>
   </div>
 </div>
+
+
+<!-- ShowUp Banner -->
+<section style="background: var(--yellow); padding: 28px 48px;">
+  <div style="max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+    <div>
+      <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: rgba(0,0,0,0.5); margin-bottom: 4px;">ATHLETE EXCLUSIVE CONDITIONING</div>
+      <div style="font-size: 18px; font-weight: 700; color: #111; line-height: 1.4;">専属コンディショニングサービス <span style="font-family:'Barlow Condensed',sans-serif; font-size:22px; letter-spacing:0.1em;">ShowUp</span> — 残り<strong>77枠</strong></div>
+      <div style="font-size: 13px; color: rgba(0,0,0,0.6); margin-top: 4px;">J1選手の出場機会+1066%・2026年冬季五輪出場者輩出</div>
+    </div>
+    <a href="showup.html" style="background:#111; color:#fff; padding:13px 26px; border-radius:4px; text-decoration:none; font-weight:700; font-size:14px; white-space:nowrap; flex-shrink:0; letter-spacing:0.04em;">詳細を見る →</a>
+  </div>
+</section>
 
 <section id="mission" class="mission-section">
   <div class="sec-tag">Mission / Vision / Value</div>
