@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HP作成代行 | Showtime - トレーナー・個人事業主専門</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #080808;
+  --white: #f5f5f0;
+  --accent: #c8f400;
+  --accent2: #00d4ff;
+  --gray: #1a1a1a;
+  --gray2: #2a2a2a;
+  --gray3: #555;
+  --text-muted: #888;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+}
+
+/* NAV */
+nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.15em; color: var(--white); }
+.logo span { color: var(--accent); }
+.nav-tag { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.2em; text-transform: uppercase; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200,244,0,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse 50% 50% at 20% 80%, rgba(0,212,255,0.04) 0%, transparent 50%);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+.hero-body {
+  position: relative; z-index: 10;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 60px; max-width: 1100px;
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent);
+  letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: var(--accent); }
+h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(72px, 10vw, 140px); line-height: 0.9; letter-spacing: 0.02em; margin-bottom: 32px; }
+h1 em { font-style: normal; color: var(--accent); display: block; }
+.hero-sub { font-size: 16px; color: var(--text-muted); line-height: 1.8; max-width: 520px; margin-bottom: 48px; }
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-scroll {
+  position: relative; z-index: 10;
+  padding: 32px 60px; display: flex; align-items: center; gap: 16px;
+}
+.scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, var(--text-muted)); animation: scrollLine 2s ease-in-out infinite; }
+@keyframes scrollLine { 0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top}50%{opacity:1;transform:scaleY(1)} }
+.scroll-text { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.2em; writing-mode: vertical-rl; }
+
+/* BUTTONS */
+.btn-primary {
+  background: var(--accent); color: var(--black); padding: 16px 40px;
+  font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 14px;
+  letter-spacing: 0.1em; border: none; cursor: pointer; text-decoration: none;
+  display: inline-block; transition: all 0.2s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.btn-primary:hover { background: #d4ff1a; transform: translateY(-2px); }
+.btn-ghost {
+  background: transparent; color: var(--white); padding: 16px 40px;
+  font-family: 'Noto Sans JP', sans-serif; font-weight: 400; font-size: 14px;
+  letter-spacing: 0.1em; border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* STATS BAR */
+.stats-bar {
+  background: var(--gray); border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 28px 60px; display: flex;
+}
+.stat-item { flex: 1; text-align: center; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.06); }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--accent); line-height: 1; letter-spacing: 0.05em; }
+.stat-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; letter-spacing: 0.1em; }
+
+/* SECTION COMMON */
+.section-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent);
+  letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 6vw, 80px); line-height: 0.95; letter-spacing: 0.03em; margin-bottom: 60px; }
+
+.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── WHY HP SECTION ── */
+.why-section {
+  padding: 120px 60px;
+  background: var(--gray);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.why-inner { max-width: 1200px; margin: 0 auto; }
+.why-lead {
+  font-size: clamp(22px, 3.5vw, 38px);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 64px;
+  border-left: 3px solid var(--accent);
+  padding-left: 28px;
+}
+.why-lead em { font-style: normal; color: var(--accent); }
+.why-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,0.04);
+  margin-bottom: 64px;
+}
+.why-card {
+  background: var(--black);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.why-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.why-card:hover::after { transform: scaleX(1); }
+.why-card:hover { background: rgba(200,244,0,0.03); }
+.why-card-icon {
+  font-size: 36px; margin-bottom: 20px; display: block;
+}
+.why-card-title {
+  font-size: 17px; font-weight: 700; margin-bottom: 12px; line-height: 1.4;
+}
+.why-card-text {
+  font-size: 13px; color: var(--text-muted); line-height: 1.9;
+}
+.why-card-text strong { color: var(--white); font-weight: 500; }
+
+.why-bottom {
+  background: rgba(200,244,0,0.05);
+  border: 1px solid rgba(200,244,0,0.2);
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.why-bottom-icon {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px; color: rgba(200,244,0,0.2); line-height: 1; flex-shrink: 0;
+}
+.why-bottom-text {}
+.why-bottom-title {
+  font-size: 20px; font-weight: 700; margin-bottom: 10px;
+  color: var(--accent);
+}
+.why-bottom-desc { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
+.why-bottom-desc strong { color: var(--white); }
+
+/* ── WHAT WE DO ── */
+.what-section { padding: 120px 60px; max-width: 1200px; margin: 0 auto; }
+.what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.04); }
+.what-item {
+  background: var(--black); padding: 48px 40px; transition: background 0.3s;
+  position: relative; overflow: hidden;
+}
+.what-item::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 0; height: 2px; background: var(--accent); transition: width 0.4s ease;
+}
+.what-item:hover::before { width: 100%; }
+.what-item:hover { background: rgba(200,244,0,0.03); }
+.what-num { font-family: 'Bebas Neue', sans-serif; font-size: 80px; color: rgba(255,255,255,0.04); line-height: 1; margin-bottom: -20px; }
+.what-title { font-size: 18px; font-weight: 500; margin-bottom: 12px; }
+.what-text { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+
+/* ── PRICING ── */
+#pricing { padding: 120px 60px; }
+.pricing-intro { max-width: 1200px; margin: 0 auto 80px; }
+.pricing-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: rgba(255,255,255,0.04);
+}
+.plan-card {
+  background: var(--black); padding: 48px 40px;
+  position: relative; display: flex; flex-direction: column;
+}
+.plan-card.featured { background: var(--gray); border: 2px solid var(--accent); margin: -2px; z-index: 2; }
+.plan-tag {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; padding: 4px 12px; display: inline-block; margin-bottom: 24px; width: fit-content;
+}
+.tag-lite { color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
+.tag-std { background: var(--accent); color: var(--black); font-weight: 500; }
+.tag-prem { color: var(--accent2); border: 1px solid var(--accent2); }
+.plan-name { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 0.05em; margin-bottom: 8px; }
+.plan-desc { font-size: 12px; color: var(--text-muted); margin-bottom: 32px; line-height: 1.7; }
+.price-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.2em; margin-bottom: 4px; }
+.price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 56px; line-height: 1; letter-spacing: 0.02em; }
+.price-amount .currency { font-size: 24px; vertical-align: super; }
+.price-amount .unit { font-size: 18px; color: var(--text-muted); }
+.plan-card.featured .price-amount { color: var(--accent); }
+.price-tax { font-size: 11px; color: var(--text-muted); margin-bottom: 24px; }
+.monthly-block {
+  background: rgba(255,255,255,0.04); padding: 16px 20px; margin-bottom: 32px;
+  border-left: 2px solid rgba(255,255,255,0.1);
+}
+.plan-card.featured .monthly-block { border-left-color: var(--accent); background: rgba(200,244,0,0.05); }
+.monthly-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.15em; margin-bottom: 4px; }
+.monthly-price { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.05em; }
+.plan-card.featured .monthly-price { color: var(--accent); }
+.monthly-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.divider { width: 100%; height: 1px; background: rgba(255,255,255,0.06); margin: 24px 0; }
+.feature-list { list-style: none; flex: 1; margin-bottom: 36px; }
+.feature-list li {
+  font-size: 13px; color: var(--text-muted); padding: 8px 0;
+  display: flex; align-items: flex-start; gap: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.04); line-height: 1.6;
+}
+.feature-list li:last-child { border-bottom: none; }
+.feat-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.feat-yes { color: var(--accent); }
+.feat-no { color: rgba(255,255,255,0.15); }
+.feat-info { color: var(--accent2); }
+.feat-text-yes { color: var(--white); }
+.feat-text-no { color: var(--gray3); }
+.revision-box {
+  background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.15);
+  padding: 16px 20px; margin-bottom: 24px;
+}
+.plan-card.featured .revision-box { background: rgba(200,244,0,0.05); border-color: rgba(200,244,0,0.2); }
+.revision-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 6px; }
+.revision-main { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--white); letter-spacing: 0.05em; }
+.plan-card.featured .revision-main { color: var(--accent); }
+.revision-extra { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+.plan-btn {
+  display: block; text-align: center; padding: 14px;
+  font-family: 'Noto Sans JP', sans-serif; font-weight: 500; font-size: 13px;
+  letter-spacing: 0.1em; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; width: 100%;
+}
+.btn-lite { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.15); }
+.btn-lite:hover { border-color: var(--white); }
+.btn-std { background: var(--accent); color: var(--black); font-weight: 700; }
+.btn-std:hover { background: #d4ff1a; }
+.btn-prem { background: transparent; color: var(--accent2); border: 1px solid var(--accent2); }
+.btn-prem:hover { background: rgba(0,212,255,0.1); }
+
+/* ── COMPARE TABLE ── */
+.compare-section { padding: 80px 60px 120px; max-width: 1200px; margin: 0 auto; }
+.compare-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; margin-bottom: 32px; letter-spacing: 0.05em; }
+.compare-table { width: 100%; border-collapse: collapse; }
+.compare-table th, .compare-table td { padding: 14px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
+.compare-table th { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.08em; font-weight: 400; padding-bottom: 20px; }
+.compare-table th:first-child, .compare-table td:first-child { text-align: left; font-size: 13px; color: var(--text-muted); font-weight: 300; padding-left: 0; }
+.compare-table thead tr { border-bottom: 2px solid rgba(255,255,255,0.08); }
+.col-std { background: rgba(200,244,0,0.04); border-left: 1px solid rgba(200,244,0,0.15); border-right: 1px solid rgba(200,244,0,0.15); }
+.col-std-head { color: var(--accent) !important; border-left: 1px solid rgba(200,244,0,0.15); border-right: 1px solid rgba(200,244,0,0.15); }
+.compare-table tr:hover td { background: rgba(255,255,255,0.02); }
+.compare-table tr:hover td.col-std { background: rgba(200,244,0,0.06); }
+.table-section-head td { background: var(--gray); color: var(--text-muted); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 10px 20px; text-align: left !important; border-bottom: none; }
+.table-section-head td.col-std { background: rgba(200,244,0,0.08); }
+.check-yes { color: var(--accent); font-size: 16px; }
+.check-no { color: rgba(255,255,255,0.12); font-size: 16px; }
+.check-val { color: var(--white); font-weight: 500; }
+.check-val2 { color: var(--accent2); font-weight: 500; }
+
+/* ── EXTRA FEE ── */
+.extra-box { max-width: 1200px; margin: 0 auto; padding: 0 60px 120px; }
+.extra-inner {
+  border: 1px solid rgba(0,212,255,0.2); background: rgba(0,212,255,0.03);
+  padding: 40px 48px; display: flex; align-items: center; gap: 48px;
+}
+.extra-icon { font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: rgba(0,212,255,0.2); line-height: 1; flex-shrink: 0; }
+.extra-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.25em; color: var(--accent2); margin-bottom: 8px; }
+.extra-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 0.05em; margin-bottom: 8px; }
+.extra-desc { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+.extra-price { margin-left: auto; text-align: right; flex-shrink: 0; }
+.extra-amount { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--accent2); letter-spacing: 0.02em; line-height: 1; }
+.extra-per { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+/* ── FLOW ── */
+.flow-section { padding: 120px 60px; background: var(--gray); border-top: 1px solid rgba(255,255,255,0.04); }
+.flow-inner { max-width: 1200px; margin: 0 auto; }
+.flow-timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+.flow-timeline::before {
+  content: ''; position: absolute; left: 32px; top: 0; bottom: 0;
+  width: 1px; background: linear-gradient(to bottom, var(--accent), rgba(200,244,0,0.1));
+}
+.flow-step {
+  display: grid; grid-template-columns: 64px 1fr;
+  gap: 32px; padding: 0 0 48px; position: relative;
+}
+.flow-step:last-child { padding-bottom: 0; }
+.step-left { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
+.step-circle {
+  width: 64px; height: 64px;
+  background: var(--black); border: 2px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+.step-circle-num { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--accent); line-height: 1; }
+.step-right { padding-top: 12px; }
+.step-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.2em; margin-bottom: 8px; }
+.step-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.step-body { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
+.step-body strong { color: var(--white); font-weight: 500; }
+.step-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.step-tag {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em;
+  padding: 4px 12px; border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted);
+}
+.step-tag.accent { border-color: rgba(200,244,0,0.3); color: var(--accent); background: rgba(200,244,0,0.04); }
+.step-connector {
+  width: 1px; flex: 1; background: transparent; min-height: 16px;
+}
+
+/* ── PORTFOLIO ── */
+.portfolio-section { padding: 120px 60px; max-width: 1200px; margin: 0 auto; }
+.portfolio-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.04); }
+.portfolio-card {
+  background: var(--black); padding: 36px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; text-decoration: none; color: var(--white);
+  transition: background 0.3s; group: true; position: relative; overflow: hidden;
+}
+.portfolio-card::before {
+  content: ''; position: absolute; left: 0; bottom: 0;
+  width: 0; height: 2px; background: var(--accent); transition: width 0.4s;
+}
+.portfolio-card:hover::before { width: 100%; }
+.portfolio-card:hover { background: rgba(200,244,0,0.03); }
+.portfolio-card-left {}
+.portfolio-card-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.2em; margin-bottom: 8px; }
+.portfolio-card-title { font-size: 18px; font-weight: 500; margin-bottom: 6px; }
+.portfolio-card-url { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent2); }
+.portfolio-card-badge {
+  font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 0.1em;
+  padding: 8px 18px; border: 1px solid rgba(200,244,0,0.3); color: var(--accent);
+  flex-shrink: 0; transition: all 0.2s;
+}
+.portfolio-card:hover .portfolio-card-badge { background: rgba(200,244,0,0.1); }
+
+/* ── FAQ ── */
+.faq-section { padding: 120px 60px; max-width: 900px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.faq-q {
+  padding: 24px 0; display: flex; justify-content: space-between;
+  align-items: center; cursor: pointer; font-size: 15px; font-weight: 400;
+  gap: 20px; list-style: none;
+}
+.faq-q::after { content: '+'; font-family: 'DM Mono', monospace; font-size: 20px; color: var(--accent); flex-shrink: 0; transition: transform 0.3s; }
+details[open] .faq-q::after { transform: rotate(45deg); }
+.faq-a { padding: 0 0 24px; font-size: 13px; color: var(--text-muted); line-height: 1.9; }
+.faq-a strong { color: var(--white); }
+.faq-a a { color: var(--accent2); text-decoration: none; }
+.faq-a a:hover { text-decoration: underline; }
+.faq-badge {
+  display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px;
+  letter-spacing: 0.15em; padding: 2px 8px; margin-right: 8px;
+  border: 1px solid rgba(0,212,255,0.4); color: var(--accent2);
+  vertical-align: middle;
+}
+
+/* ── CONTACT ── */
+.contact-section { padding: 120px 60px; max-width: 800px; margin: 0 auto; }
+.contact-form { display: flex; flex-direction: column; gap: 20px; margin-top: 48px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--text-muted); }
+.form-label span { color: var(--accent); margin-left: 4px; }
+.form-input, .form-select, .form-textarea {
+  background: var(--gray); border: 1px solid rgba(255,255,255,0.08);
+  color: var(--white); padding: 14px 18px;
+  font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: 300;
+  outline: none; transition: border-color 0.2s; width: 100%;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); }
+.form-textarea { min-height: 160px; resize: vertical; line-height: 1.7; }
+.form-select option { background: var(--gray); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-submit {
+  background: var(--accent); color: var(--black); padding: 18px;
+  font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 15px;
+  letter-spacing: 0.15em; border: none; cursor: pointer; transition: all 0.2s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  margin-top: 8px;
+}
+.form-submit:hover { background: #d4ff1a; transform: translateY(-2px); }
+.form-note { font-size: 12px; color: var(--text-muted); line-height: 1.7; padding-top: 8px; }
+#form-success {
+  display: none; background: rgba(200,244,0,0.08); border: 1px solid rgba(200,244,0,0.3);
+  padding: 24px 32px; text-align: center;
+}
+#form-success .success-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--accent); margin-bottom: 8px; }
+#form-success p { font-size: 14px; color: var(--text-muted); }
+
+/* FOOTER */
+footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-muted); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav, .hero-body, .hero-scroll, .stats-bar { padding-left: 24px; padding-right: 24px; }
+  #pricing, .compare-section, .extra-box, .flow-section, .portfolio-section, .faq-section, .contact-section { padding-left: 24px; padding-right: 24px; }
+  .why-section { padding: 80px 24px; }
+  .what-section { padding: 80px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; gap: 16px; }
+  .pricing-grid, .why-cards, .what-grid, .portfolio-cards { grid-template-columns: 1fr; }
+  .plan-card.featured { margin: 0; }
+  .flow-timeline::before { left: 24px; }
+  .flow-step { grid-template-columns: 48px 1fr; gap: 20px; }
+  .step-circle { width: 48px; height: 48px; }
+  .extra-inner { flex-direction: column; gap: 24px; }
+  .extra-price { margin-left: 0; text-align: left; }
+  .compare-table th, .compare-table td { padding: 10px 12px; font-size: 12px; }
+  h1 { font-size: 60px; }
+  .form-row { grid-template-columns: 1fr; }
+  .why-bottom { flex-direction: column; gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <nav>
+    <div class="logo">SHOW<span>TIME</span></div>
+    <div class="nav-tag">HP CREATION SERVICE</div>
+  </nav>
+  <div class="hero-body">
+    <div class="hero-eyebrow">SPORTS TRAINER · PT · FREELANCE EXCLUSIVE</div>
+    <h1>YOUR SITE.<br><em>YOUR BRAND.</em><br>YOUR FUTURE.</h1>
+    <p class="hero-sub">
+      トレーナー・理学療法士・個人事業主として活動するあなたに、<br>
+      <strong style="color:var(--white)">オンラインの名刺</strong>を。<br>
+      Showtimeが、あなたの世界観をかたちにします。
+    </p>
+    <div class="hero-cta">
+      <a href="#pricing" class="btn-primary">料金プランを見る</a>
+      <a href="#why" class="btn-ghost">なぜHPが必要？</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <div class="scroll-text">SCROLL</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">3〜4W</div><div class="stat-label">最短納期</div></div>
+  <div class="stat-item"><div class="stat-num">¥0</div><div class="stat-label">サーバー構築費</div></div>
+  <div class="stat-item"><div class="stat-num">SP</div><div class="stat-label">全プランスマホ対応</div></div>
+  <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">プランから選べる</div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     WHY HP? — なぜHPが必要か
+══════════════════════════════════════ -->
+<div class="why-section fade-up" id="why">
+  <div class="why-inner">
+    <div class="section-eyebrow">WHY TRAINERS NEED A WEBSITE</div>
+    <h2 style="margin-bottom:16px;">なぜ今、<br>HPが必要なのか。</h2>
+    <p class="why-lead">
+      トレーナー・理学療法士・個人事業主として活動するなら、<br>
+      HPは<em>「あったら便利」ではなく、「ないと損をする」時代</em>になっています。<br><br>
+      SNSのフォロワーが何千人いても、HPがなければ<em>信頼の証明ができない</em>。<br>
+      HPは、あなたの実力・資格・想い・料金を24時間365日伝え続ける、<em>オンラインの名刺</em>です。
+    </p>
+
+    <div class="why-cards">
+      <div class="why-card">
+        <span class="why-card-icon">🪪</span>
+        <div class="why-card-title">HPは24時間365日<br>働く、あなたの名刺</div>
+        <p class="why-card-text">
+          紙の名刺は会ったときしか渡せません。でもHPなら、<strong>SNSで見つけた人・紹介で名前を聞いた人・検索した人</strong>、すべてに同じ瞬間、あなたの実力を伝えられます。
+        </p>
+      </div>
+      <div class="why-card">
+        <span class="why-card-icon">🔍</span>
+        <div class="why-card-title">「検索された」ときに<br>存在できる場所</div>
+        <p class="why-card-text">
+          「大阪 パーソナルトレーナー」「理学療法士 出張」と検索したとき、<strong>HPがなければ存在しないのと同じ</strong>です。SNSだけでは届かない層に、HPが橋渡しをします。
+        </p>
+      </div>
+      <div class="why-card">
+        <span class="why-card-icon">💼</span>
+        <div class="why-card-title">個人事業主に信頼は<br>「見た目」で決まる</div>
+        <p class="why-card-text">
+          クライアントが「この人に頼んでいいか」を判断するのは、最初の数秒。<strong>資格・実績・想い・料金</strong>を整理して伝えられるHPは、契約率を大きく変えます。
+        </p>
+      </div>
+      <div class="why-card">
+        <span class="why-card-icon">📱</span>
+        <div class="why-card-title">SNSと連携して<br>集客を自動化する</div>
+        <p class="why-card-text">
+          InstagramやXで発信し、<strong>「詳細はプロフリンクへ」</strong>の先にHPがある。フォロワーを見込み客に変える、最も自然な導線です。
+        </p>
+      </div>
+      <div class="why-card">
+        <span class="why-card-icon">🏆</span>
+        <div class="why-card-title">他のトレーナーと<br>差をつける最速の手段</div>
+        <p class="why-card-text">
+          フリーランストレーナーの多くは、まだHPを持っていません。<strong>今持つことが、そのまま競合との差別化</strong>になります。
+        </p>
+      </div>
+      <div class="why-card">
+        <span class="why-card-icon">💡</span>
+        <div class="why-card-title">チーム帯同・企業契約も<br>HPがあると話が早い</div>
+        <p class="why-card-text">
+          チームや企業からの仕事を取りに行くとき、<strong>HPのURLを送るだけで一次審査をクリア</strong>できます。名刺だけでは伝わらない信頼感を、HPが代わりに伝えます。
+        </p>
+      </div>
+    </div>
+
+    <div class="why-bottom">
+      <div class="why-bottom-icon">¥</div>
+      <div class="why-bottom-text">
+        <div class="why-bottom-title">大手制作会社の半額以下で作れる理由</div>
+        <p class="why-bottom-desc">
+          Showtimeはトレーナー・理学療法士・個人事業主に<strong>特化</strong>しているため、必要なセクション・デザインのパターンを熟知しています。無駄な打ち合わせや設計コストをなくすことで、<strong>49,800円〜という価格を実現</strong>。大手に頼めば30〜100万円かかるところを、品質を落とさず提供します。
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<div class="what-section fade-up">
+  <div class="section-eyebrow">WHAT WE DO</div>
+  <h2>TRAINER'S<br>WEB, MADE<br>RIGHT.</h2>
+  <div class="what-grid">
+    <div class="what-item">
+      <div class="what-num">01</div>
+      <div class="what-title">デザインは全てオーダーメイド</div>
+      <p class="what-text">テンプレートに収まらない、あなただけの世界観。ヒアリングをもとに一からデザインします。</p>
+    </div>
+    <div class="what-item">
+      <div class="what-num">02</div>
+      <div class="what-title">スマホ完全対応</div>
+      <p class="what-text">クライアントのほとんどはスマホで検索します。全プランでレスポンシブ対応を標準搭載。</p>
+    </div>
+    <div class="what-item">
+      <div class="what-num">03</div>
+      <div class="what-title">運用まで丸投げOK</div>
+      <p class="what-text">サーバー管理・ドメイン・バックアップも月額に込み。HPのことはShowtimeに任せて、トレーニングに集中を。</p>
+    </div>
+    <div class="what-item">
+      <div class="what-num">04</div>
+      <div class="what-title">トレーナー専門だから速い・安い</div>
+      <p class="what-text">必要なセクションを熟知しているから無駄がなく、大手制作会社の半額以下で制作できます。</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div id="pricing">
+  <div class="pricing-intro fade-up">
+    <div class="section-eyebrow">PRICING</div>
+    <h2>CHOOSE<br>YOUR PLAN.</h2>
+  </div>
+  <div class="pricing-grid fade-up">
+
+    <!-- LITE -->
+    <div class="plan-card">
+      <span class="plan-tag tag-lite">LITE</span>
+      <div class="plan-name">LITE PLAN</div>
+      <p class="plan-desc">名刺がわりに、まず存在を示す。シンプルだけど本格的な1枚LP。</p>
+      <div class="plan-price-block">
+        <div class="price-label">INITIAL COST</div>
+        <div class="price-amount"><span class="currency">¥</span>49,800<span class="unit"> 〜</span></div>
+      </div>
+      <div class="price-tax">税別 / 初期費用</div>
+      <div class="monthly-block">
+        <div class="monthly-label">MONTHLY FEE</div>
+        <div class="monthly-price">¥4,980 <span style="font-size:14px;color:var(--text-muted);font-family:'Noto Sans JP'">/月</span></div>
+        <div class="monthly-sub">サーバー・ドメイン・管理費込み</div>
+      </div>
+      <div class="revision-box">
+        <div class="revision-label">FREE REVISION</div>
+        <div class="revision-main">2回まで無料</div>
+        <div class="revision-extra">追加修正 ¥4,500 / 1回</div>
+      </div>
+      <div class="divider"></div>
+      <ul class="feature-list">
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">LP 1枚・最大5セクション</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">スマホ対応（レスポンシブ）</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">問い合わせフォーム</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">SNSリンク設置（主要2種）</span></li>
+        <li><span class="feat-icon feat-no">—</span><span class="feat-text-no">お客様の声セクション</span></li>
+        <li><span class="feat-icon feat-no">—</span><span class="feat-text-no">Instagram埋め込み</span></li>
+        <li><span class="feat-icon feat-no">—</span><span class="feat-text-no">Google Map</span></li>
+        <li><span class="feat-icon feat-no">—</span><span class="feat-text-no">SEO対策</span></li>
+        <li><span class="feat-icon feat-no">—</span><span class="feat-text-no">予約フォーム連携</span></li>
+      </ul>
+      <a href="#contact" class="plan-btn btn-lite">このプランで相談する</a>
+    </div>
+
+    <!-- STANDARD -->
+    <div class="plan-card featured">
+      <span class="plan-tag tag-std">★ RECOMMENDED</span>
+      <div class="plan-name">STANDARD</div>
+      <p class="plan-desc">集客に使えるHPを持ちたいトレーナーに。お客様の声・SNS連携・SEO対策まで。</p>
+      <div class="plan-price-block">
+        <div class="price-label">INITIAL COST</div>
+        <div class="price-amount"><span class="currency">¥</span>79,800<span class="unit"> 〜</span></div>
+      </div>
+      <div class="price-tax">税別 / 初期費用</div>
+      <div class="monthly-block">
+        <div class="monthly-label">MONTHLY FEE</div>
+        <div class="monthly-price">¥5,480 <span style="font-size:14px;color:var(--text-muted);font-family:'Noto Sans JP'">/月</span></div>
+        <div class="monthly-sub">修正対応・サポート・管理費込み</div>
+      </div>
+      <div class="revision-box">
+        <div class="revision-label">FREE REVISION</div>
+        <div class="revision-main">5回まで無料</div>
+        <div class="revision-extra">追加修正 ¥4,500 / 1回</div>
+      </div>
+      <div class="divider"></div>
+      <ul class="feature-list">
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">LP 1枚・最大8セクション</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">スマホ対応（レスポンシブ）</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">問い合わせフォーム</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">SNSリンク設置（主要4種）</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">お客様の声セクション</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">Instagram埋め込み連携</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">Google Map埋め込み</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">簡易SEO対策</span></li>
+        <li><span class="feat-icon feat-no">—</span><span class="feat-text-no">予約フォーム連携</span></li>
+      </ul>
+      <a href="#contact" class="plan-btn btn-std">このプランで相談する</a>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="plan-card">
+      <span class="plan-tag tag-prem">PREMIUM</span>
+      <div class="plan-name">PREMIUM</div>
+      <p class="plan-desc">ブランドとして本格的に展開したいトレーナーに。予約・ブログ・コピー支援まで全込み。</p>
+      <div class="plan-price-block">
+        <div class="price-label">INITIAL COST</div>
+        <div class="price-amount"><span class="currency">¥</span>119,800<span class="unit"> 〜</span></div>
+      </div>
+      <div class="price-tax">税別 / 初期費用</div>
+      <div class="monthly-block">
+        <div class="monthly-label">MONTHLY FEE</div>
+        <div class="monthly-price">¥6,980 <span style="font-size:14px;color:var(--text-muted);font-family:'Noto Sans JP'">/月</span></div>
+        <div class="monthly-sub">優先サポート・全機能管理費込み</div>
+      </div>
+      <div class="revision-box">
+        <div class="revision-label">FREE REVISION</div>
+        <div class="revision-main">10回まで無料</div>
+        <div class="revision-extra">追加修正 ¥4,500 / 1回</div>
+      </div>
+      <div class="divider"></div>
+      <ul class="feature-list">
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">LP 1枚・最大12セクション</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">スマホ対応（レスポンシブ）</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">問い合わせフォーム</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">SNSリンク設置（全種類）</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">お客様の声セクション</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">Instagram埋め込み連携</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">Google Map埋め込み</span></li>
+        <li><span class="feat-icon feat-yes">●</span><span class="feat-text-yes">SEO対策＋アクセス解析（GA4）</span></li>
+        <li><span class="feat-icon feat-info">◆</span><span class="feat-text-yes">予約フォーム連携</span></li>
+        <li><span class="feat-icon feat-info">◆</span><span class="feat-text-yes">ブログ機能</span></li>
+        <li><span class="feat-icon feat-info">◆</span><span class="feat-text-yes">コピーライティング支援</span></li>
+      </ul>
+      <a href="#contact" class="plan-btn btn-prem">このプランで相談する</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPARE TABLE -->
+<div class="compare-section fade-up">
+  <div class="compare-title">PLAN COMPARISON</div>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>LITE</th>
+        <th class="col-std-head">STANDARD</th>
+        <th>PREMIUM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-section-head"><td colspan="4">費用</td></tr>
+      <tr><td>初期費用（税別）</td><td>¥49,800〜</td><td class="col-std check-val">¥79,800〜</td><td>¥119,800〜</td></tr>
+      <tr><td>月額費用（税別）</td><td>¥4,980</td><td class="col-std check-val">¥5,480</td><td>¥6,980</td></tr>
+      <tr><td>無料修正回数</td><td>2回</td><td class="col-std check-val">5回</td><td>10回</td></tr>
+      <tr><td>追加修正費用</td><td>¥4,500/回</td><td class="col-std">¥4,500/回</td><td>¥4,500/回</td></tr>
+      <tr><td>セクション数</td><td>最大5</td><td class="col-std check-val">最大8</td><td>最大12</td></tr>
+      <tr><td>納品目安</td><td>3〜4週間</td><td class="col-std">3〜4週間</td><td>4〜5週間</td></tr>
+      <tr class="table-section-head"><td colspan="4">基本機能</td></tr>
+      <tr><td>スマホ対応</td><td><span class="check-yes">✓</span></td><td class="col-std"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>問い合わせフォーム</td><td><span class="check-yes">✓</span></td><td class="col-std"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>SNSリンク設置</td><td>2種</td><td class="col-std check-val">4種</td><td>全種</td></tr>
+      <tr><td>お客様の声</td><td><span class="check-no">—</span></td><td class="col-std"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>Instagram連携</td><td><span class="check-no">—</span></td><td class="col-std"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>Google Map埋め込み</td><td><span class="check-no">—</span></td><td class="col-std"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>SEO対策</td><td><span class="check-no">—</span></td><td class="col-std"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr class="table-section-head"><td colspan="4">上位機能（プレミアム専用）</td></tr>
+      <tr><td>予約フォーム連携</td><td><span class="check-no">—</span></td><td class="col-std"><span class="check-no">—</span></td><td><span class="check-val2">✓</span></td></tr>
+      <tr><td>ブログ機能</td><td><span class="check-no">—</span></td><td class="col-std"><span class="check-no">—</span></td><td><span class="check-val2">✓</span></td></tr>
+      <tr><td>アクセス解析（GA4）</td><td><span class="check-no">—</span></td><td class="col-std"><span class="check-no">—</span></td><td><span class="check-val2">✓</span></td></tr>
+      <tr><td>コピーライティング支援</td><td><span class="check-no">—</span></td><td class="col-std"><span class="check-no">—</span></td><td><span class="check-val2">✓</span></td></tr>
+      <tr class="table-section-head"><td colspan="4">月額サービス内容（全プラン共通）</td></tr>
+      <tr><td>サーバー・ドメイン管理代行</td><td><span class="check-yes">✓</span></td><td class="col-std"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>定期バックアップ</td><td><span class="check-yes">✓</span></td><td class="col-std"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>SSL・セキュリティ管理</td><td><span class="check-yes">✓</span></td><td class="col-std"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>メールサポート</td><td><span class="check-no">—</span></td><td class="col-std"><span class="check-yes">✓</span></td><td><span class="check-val2">✓ 優先対応</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- EXTRA FEE -->
+<div class="extra-box fade-up">
+  <div class="extra-inner">
+    <div class="extra-icon">+</div>
+    <div class="extra-content">
+      <div class="extra-label">EXTRA REVISION FEE</div>
+      <div class="extra-title">無料枠を超えた修正について</div>
+      <p class="extra-desc">
+        各プランの無料修正回数（ライト：2回 / スタンダード：5回 / プレミアム：10回）を超えた場合、1回につき修正手数料が発生します。テキスト変更・画像差し替え等、複数箇所でもまとめてご依頼いただければ1件分で対応します。
+      </p>
+    </div>
+    <div class="extra-price">
+      <div class="extra-amount">¥4,500</div>
+      <div class="extra-per">/ 1回（税別）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     FLOW — 制作の流れ（完全リニューアル）
+══════════════════════════════════════ -->
+<div class="flow-section fade-up" id="flow">
+  <div class="flow-inner">
+    <div class="section-eyebrow">HOW IT WORKS</div>
+    <h2>SIMPLE<br>PROCESS.</h2>
+
+    <div class="flow-timeline">
+
+      <div class="flow-step">
+        <div class="step-left">
+          <div class="step-circle"><span class="step-circle-num">01</span></div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-eyebrow">FIRST CONTACT</div>
+          <div class="step-title">まずはメールで無料相談</div>
+          <p class="step-body">
+            「HPを作りたい」「どのプランが合うか分からない」など、どんな段階でも構いません。<strong>ページ下部のお問い合わせフォームからメール</strong>をお送りください。<br>
+            1〜2営業日以内にご返信します。
+          </p>
+          <div class="step-tags">
+            <span class="step-tag accent">無料・相談歓迎</span>
+            <span class="step-tag">1〜2営業日以内に返信</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="step-left">
+          <div class="step-circle"><span class="step-circle-num">02</span></div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-eyebrow">HEARING</div>
+          <div class="step-title">ヒアリングシートに記入</div>
+          <p class="step-body">
+            プランが決まったら、<strong>40項目のヒアリングシート</strong>をお送りします。資格・実績・デザインの好み・使用する写真まで、ここでしっかり世界観を整理します。<br>
+            文章が苦手でも大丈夫。箇条書きでも、メモ書きでも構いません。
+          </p>
+          <div class="step-tags">
+            <span class="step-tag accent">40項目のシート</span>
+            <span class="step-tag">写真は最大10枚</span>
+            <span class="step-tag">文章サポートあり（プレミアム）</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="step-left">
+          <div class="step-circle"><span class="step-circle-num">03</span></div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-eyebrow">PAYMENT</div>
+          <div class="step-title">お見積もり確認・初期費用のお支払い</div>
+          <p class="step-body">
+            ヒアリング内容をもとに<strong>お見積もりをご提示</strong>します。内容にご納得いただけたら、初期費用を銀行振込にてお支払いください。<strong>お支払い確認後、制作を開始</strong>します。
+          </p>
+          <div class="step-tags">
+            <span class="step-tag">銀行振込</span>
+            <span class="step-tag accent">入金確認後に制作スタート</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="step-left">
+          <div class="step-circle"><span class="step-circle-num">04</span></div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-eyebrow">DESIGN & BUILD</div>
+          <div class="step-title">デザイン制作・確認・修正</div>
+          <p class="step-body">
+            制作開始から<strong>約2〜3週間でデザイン初稿をご確認</strong>いただけます。URLをお送りしますので、実際の見た目を確認しながら修正をお伝えください。<br>
+            無料修正回数内であれば何度でも対応します。プレミアムは最大10回まで無料です。
+          </p>
+          <div class="step-tags">
+            <span class="step-tag accent">初稿まで約2〜3週間</span>
+            <span class="step-tag">無料修正：2〜10回（プランによる）</span>
+            <span class="step-tag">追加修正 ¥4,500/回</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="step-left">
+          <div class="step-circle"><span class="step-circle-num">05</span></div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-eyebrow">LAUNCH</div>
+          <div class="step-title">公開！月額プランで運用スタート</div>
+          <p class="step-body">
+            最終確認が完了したら<strong>公開</strong>です。ドメイン・サーバーの設定もすべてShowtimeが代行します。公開後は月額プランに移行し、<strong>サーバー管理・バックアップ・修正対応をそのまま継続</strong>します。<br>
+            あとはトレーニングに集中してください。
+          </p>
+          <div class="step-tags">
+            <span class="step-tag accent">最短3〜4週間で公開</span>
+            <span class="step-tag">ドメイン設定代行</span>
+            <span class="step-tag">月額で運用継続</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="portfolio-section fade-up" id="portfolio">
+  <div class="section-eyebrow">PORTFOLIO</div>
+  <h2>SAMPLE<br>WORKS.</h2>
+  <div class="portfolio-cards">
+
+    <a href="https://showtime1108.github.io/showtime/" target="_blank" rel="noopener" class="portfolio-card">
+      <div class="portfolio-card-left">
+        <div class="portfolio-card-label">SAMPLE 01 — PREMIUM PLAN</div>
+        <div class="portfolio-card-title">株式会社 Showtime</div>
+        <div class="portfolio-card-url">showtime1108.github.io/showtime/</div>
+      </div>
+      <div class="portfolio-card-badge">VIEW →</div>
+    </a>
+
+    <a href="https://11showtime08-bot.github.io/Uehara-takaki/" target="_blank" rel="noopener" class="portfolio-card">
+      <div class="portfolio-card-left">
+        <div class="portfolio-card-label">SAMPLE 02 — LITE PLAN</div>
+        <div class="portfolio-card-title">上原 嵩稀 | Sports Trainer</div>
+        <div class="portfolio-card-url">11showtime08-bot.github.io/Uehara-takaki/</div>
+      </div>
+      <div class="portfolio-card-badge">VIEW →</div>
+    </a>
+
+  </div>
+  <p style="font-size:12px;color:var(--text-muted);margin-top:16px;text-align:right;">
+    ※ 制作実績は随時追加予定。お気軽にお問い合わせください。
+  </p>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section fade-up" id="faq">
+  <div class="section-eyebrow">FAQ</div>
+  <h2>Q&A.</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">月額の最低契約期間はありますか？</summary>
+    <p class="faq-a">最低3ヶ月からのご契約をお願いしています。3ヶ月以降は1ヶ月単位での解約が可能です。解約後はドメインやデータのお引き渡しにも対応します。</p>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">写真や文章は自分で用意しないといけませんか？</summary>
+    <p class="faq-a">基本的には<strong>ヒアリングシートへのご記入＋写真のご提供</strong>をお願いしています。プレミアムプランではコピーライティング支援も含まれますので、文章が苦手な方でも安心してお任せいただけます。</p>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">「修正1回」は何を指しますか？</summary>
+    <p class="faq-a">テキストの変更・画像の差し替え・セクションの順序変更など、<strong>1件のご依頼を「1回」</strong>としてカウントします。複数箇所でもまとめてご依頼いただければ1回分で対応します。追加修正は<strong>¥4,500 / 1回（税別）</strong>です。</p>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">独自ドメイン（例：yamada-trainer.com）は取れますか？</summary>
+    <p class="faq-a">はい、取得代行が可能です。ドメイン費用は<strong>年間2,000〜5,000円程度</strong>（ドメインの種類や取得先により異なります）を別途実費でご負担いただきます。希望ドメインの空き確認もご相談ください。</p>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">サンプルサイトを見せてもらえますか？</summary>
+    <p class="faq-a">はい！上記「SAMPLE WORKS」セクションに掲載しています。ライトプランとプレミアムプランの実際の制作例をご覧いただけます。</p>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q"><span class="faq-badge">買い切りプラン</span>月額なしで、制作だけ依頼できますか？</summary>
+    <p class="faq-a">
+      <strong>はい、可能です！</strong>月額契約なしの買い切りプランもご相談いただけます。初期費用のみでHPを制作・納品します。<br><br>
+      ただし、<strong>買い切りの場合はいくつかご注意点</strong>があります。
+      <br><br>
+      ・サーバーやドメインの管理はご自身でお願いします（契約・費用・更新手続きすべて自己管理）<br>
+      ・サーバーの更新を忘れたり、設定が変わったりすると<strong>突然HPが表示されなくなる</strong>ことがあります<br>
+      ・SSL証明書の期限切れやセキュリティ対応もご自身での対処が必要です<br>
+      ・修正が発生した場合は都度<strong>¥4,500 / 1回（税別）</strong>の修正手数料が発生します<br><br>
+      長期的に安定して運用したい場合は、月額プランをおすすめしています。まずはお気軽にご相談ください。
+    </p>
+  </details>
+
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section fade-up" id="contact">
+  <div class="section-eyebrow">CONTACT</div>
+  <h2>まず、話を<br>聞かせてください。</h2>
+  <p style="font-size:14px;color:var(--text-muted);line-height:1.9;margin-bottom:8px;">
+    ヒアリングから見積もりまで完全無料。<br>
+    どんな段階のご相談でも、お気軽にどうぞ。
+  </p>
+
+  <div id="form-success">
+    <div class="success-title">SENT ✓</div>
+    <p>お問い合わせありがとうございます。<br>1〜2営業日以内にご返信いたします。</p>
+  </div>
+
+  <form class="contact-form" id="contact-form"
+        action="https://formspree.io/f/xaqzbzgy"
+        method="POST">
+
+    <!-- Formspree: 送信後にこのページへリダイレクト -->
+    <input type="hidden" name="_next" value="https://showtime1108.github.io/hp-service/?sent=true">
+    <!-- Formspree: 件名 -->
+    <input type="hidden" name="_subject" value="【HP制作相談】新しいお問い合わせが届きました">
+    <!-- Formspree: スパム対策 -->
+    <input type="hidden" name="_language" value="ja">
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">お名前<span>*</span></label>
+        <input type="text" name="お名前" class="form-input" placeholder="山田 太郎" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス<span>*</span></label>
+        <input type="email" name="_replyto" class="form-input" placeholder="example@mail.com" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">ご職業・活動内容</label>
+      <select name="ご職業" class="form-select">
+        <option value="">選択してください</option>
+        <option>スポーツトレーナー（個人事業主）</option>
+        <option>理学療法士（個人事業主）</option>
+        <option>パーソナルトレーナー</option>
+        <option>アスレティックトレーナー</option>
+        <option>その他の個人事業主</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">気になるプラン</label>
+      <select name="気になるプラン" class="form-select">
+        <option value="">選択してください</option>
+        <option>ライトプラン（¥49,800〜）</option>
+        <option>スタンダードプラン（¥79,800〜）</option>
+        <option>プレミアムプラン（¥119,800〜）</option>
+        <option>買い切り（月額なし）で相談したい</option>
+        <option>まだ決まっていない</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">お問い合わせ内容<span>*</span></label>
+      <textarea name="お問い合わせ内容" class="form-textarea" placeholder="例：現在フリーランスでトレーナーをしています。まずは名刺代わりのHPが欲しいのですが、どのプランが合うか相談したいです。" required></textarea>
+    </div>
+    <p class="form-note">
+      ※ いただいた情報はHP制作のご相談・お見積もりのみに使用します。<br>
+      ※ 1〜2営業日以内にご入力いただいたメールアドレスへご返信します。
+    </p>
+    <button type="submit" class="form-submit">送信する →</button>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">SHOW<span>TIME</span></div>
+  <div class="footer-copy">© 2025 SHOWTIME Inc. — HP CREATION FOR SPORTS TRAINERS</div>
+</footer>
+
+<script>
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// 送信完了（?sent=true でリダイレクトされてきた場合）
+if (window.location.search.includes('sent=true')) {
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  if (form) form.style.display = 'none';
+  if (success) {
+    success.style.display = 'block';
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+</script>
+</body>
+</html>
