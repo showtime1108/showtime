@@ -24,16 +24,7 @@
 html{scroll-behavior:smooth;}
 body{font-family:"Noto Sans JP",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
 
-/* LOADING */
-.loader{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease;}
-.loader.hidden{opacity:0;visibility:hidden;}
-.loader-logo{text-align:center;}
-.loader-text{font-family:"Cormorant Garamond",serif;font-size:clamp(36px,8vw,72px);font-weight:600;color:var(--white);letter-spacing:0.15em;opacity:0;animation:fadeUp 0.8s ease 0.3s forwards;}
-.loader-text em{color:var(--gold);font-style:normal;}
-.loader-line{width:0;height:1px;background:var(--gold);margin:12px auto 0;animation:expandLine 0.6s ease 0.9s forwards;}
-.loader-sub{font-size:11px;color:var(--gray);letter-spacing:0.22em;text-transform:uppercase;opacity:0;animation:fadeUp 0.6s ease 1.2s forwards;margin-top:10px;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-@keyframes expandLine{from{width:0;}to{width:120px;}}
+
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(8,8,8,0.92);border-bottom:1px solid var(--gold-border);backdrop-filter:blur(12px);}
@@ -222,16 +213,6 @@ footer div{display:flex;gap:20px;flex-wrap:wrap;}
 </style>
 </head>
 <body>
-
-<!-- LOADER -->
-<div class="loader" id="loader">
-  <div class="loader-logo">
-    <div class="loader-text">SHOW<em>ROOM</em></div>
-    <div class="loader-line"></div>
-    <div class="loader-sub">Osaka Kitahorie — Premium Conditioning</div>
-  </div>
-</div>
-
 <nav class="nav">
   <a href="index.html" class="nav-logo">SHOW<em>ROOM</em></a>
   <div class="nav-links">
@@ -481,12 +462,7 @@ footer div{display:flex;gap:20px;flex-wrap:wrap;}
 </footer>
 
 <script>
-// Loader
-window.addEventListener('load', function(){
-  setTimeout(function(){
-    document.getElementById('loader').classList.add('hidden');
-  }, 2000);
-});
+
 
 // Set min date for booking
 var today = new Date();
