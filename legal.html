@@ -23,7 +23,7 @@ body{font-family:"Noto Sans JP",sans-serif;background:#faf9f7;color:#1a1a1a;line
 .section-title{font-size:28px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
 .section-updated{font-size:12px;color:#999;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #e8e8e8;}
 .section-updated span{background:#f5c518;color:#000;font-size:10px;font-weight:700;padding:2px 8px;border-radius:2px;margin-right:8px;}
-h3{font-size:15px;font-weight:700;color:#1a1a1a;margin:28px 0 10px;}
+h3{font-size:16px;font-weight:700;color:#1a1a1a;margin:36px 0 12px;padding-bottom:8px;border-bottom:1px solid #e8e8e8;}
 h4{font-size:13px;font-weight:700;color:#333;margin:20px 0 8px;padding-left:10px;border-left:3px solid #f5c518;}
 p{font-size:13px;color:#444;line-height:1.9;margin-bottom:12px;}
 ul{padding-left:20px;margin-bottom:12px;}
@@ -32,15 +32,16 @@ ul li{font-size:13px;color:#444;line-height:1.9;margin-bottom:4px;}
 .table tr{border-bottom:1px solid #e8e8e8;}
 .table tr:first-child{border-top:1px solid #e8e8e8;}
 .table td{padding:14px 0;font-size:13px;vertical-align:top;}
-.table td:first-child{color:#666;font-weight:700;min-width:150px;padding-right:20px;white-space:nowrap;}
+.table td:first-child{color:#555;font-weight:700;min-width:160px;padding-right:20px;white-space:nowrap;}
 .table td:last-child{color:#333;line-height:1.85;}
 .table td a{color:#c9a00a;text-decoration:none;}
 .alert-box{background:#fff8e6;border-left:3px solid #f5c518;padding:16px 18px;border-radius:0 6px 6px 0;margin:10px 0;}
 .alert-box p{margin-bottom:8px;font-size:13px;color:#333;line-height:1.85;}
 .alert-box p:last-child{margin-bottom:0;}
 .alert-box strong{color:#1a1a1a;}
-.service-block{background:#fff;border:1px solid #e8e8e8;border-radius:8px;padding:20px 24px;margin-bottom:16px;}
-.service-block h4{border:none;padding-left:0;margin-top:0;}
+.service-block{background:#fff;border:1px solid #e8e8e8;border-radius:8px;padding:24px 28px;margin-bottom:20px;}
+.service-block h3{border-bottom:none;padding-bottom:0;margin-top:0;font-size:15px;color:#1a1a1a;margin-bottom:16px;}
+.info-block{background:#f5f5f5;border-radius:6px;padding:16px 18px;margin:16px 0;font-size:13px;color:#555;line-height:1.85;}
 .page-footer{background:#0a0a0a;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
 .page-footer p,.page-footer a{font-size:10px;color:rgba(255,255,255,0.2);text-decoration:none;}
 @media(max-width:768px){
@@ -48,6 +49,7 @@ ul li{font-size:13px;color:#444;line-height:1.9;margin-bottom:4px;}
   .container{padding:40px 20px 60px;}
   .tab-link{padding:12px 14px;font-size:12px;}
   .table td:first-child{min-width:100px;font-size:12px;}
+  .service-block{padding:18px 16px;}
   .page-footer{padding:16px 20px;flex-direction:column;gap:8px;}
 }
 </style>
@@ -67,75 +69,66 @@ ul li{font-size:13px;color:#444;line-height:1.9;margin-bottom:4px;}
 
 <div class="container">
 
-  <!-- 特定商取引法 -->
+  <!-- ============================
+       特定商取引法に基づく表記
+       ============================ -->
   <div class="section" id="tokusho">
     <div class="section-id">Legal Notice</div>
     <div class="section-title">特定商取引法に基づく表記</div>
-    <div class="section-updated"><span>2025年制定</span>特定商取引法第11条に基づく表記です。</div>
+    <div class="section-updated">
+      <span>2026年9月制定</span>特定商取引法第11条に基づく表記です。
+    </div>
 
+    <!-- 共通事業者情報 -->
+    <h3>事業者情報</h3>
     <table class="table">
-      <tr>
-        <td>事業者名</td>
-        <td>株式会社Showtime</td>
-      </tr>
-      <tr>
-        <td>運営責任者</td>
-        <td>石川 翔</td>
-      </tr>
-      <tr>
-        <td>所在地</td>
-        <td>〒550-0014<br>大阪府大阪市西区北堀江4丁目4番8号 西長堀ビル304号室</td>
-      </tr>
-      <tr>
-        <td>電話番号</td>
-        <td>080-4535-7690<br><small style="color:#888;">受付時間：10:00〜22:00（不定休）</small></td>
-      </tr>
-      <tr>
-        <td>メール・LINE</td>
-        <td>
-          メール：<a href="mailto:11showtime08@gmail.com">11showtime08@gmail.com</a><br>
-          LINE公式：<a href="https://line.me/R/ti/p/@876iwzkb">@876iwzkb</a>
-        </td>
-      </tr>
+      <tr><td>事業者名</td><td>株式会社Showtime</td></tr>
+      <tr><td>運営責任者</td><td>石川 翔</td></tr>
+      <tr><td>所在地</td><td>〒550-0014<br>大阪府大阪市西区北堀江4丁目4番8号 西長堀ビル304号室</td></tr>
+      <tr><td>電話番号</td><td>080-4535-7690<br><small style="color:#888;">受付時間：10:00〜22:00（不定休）</small></td></tr>
+      <tr><td>メールアドレス</td><td><a href="mailto:11showtime08@gmail.com">11showtime08@gmail.com</a></td></tr>
+      <tr><td>LINE公式</td><td><a href="https://line.me/R/ti/p/@876iwzkb">@876iwzkb</a></td></tr>
     </table>
 
-    <h3 style="margin-top:40px;">各サービスの表記</h3>
-
     <!-- ShowUp -->
+    <h3>ShowUp — アスリート専属コンディショニングサポート</h3>
     <div class="service-block">
-      <h4>ShowUp — アスリート専属コンディショニングサポート</h4>
       <table class="table">
         <tr>
-          <td>料金</td>
+          <td>販売価格</td>
           <td>
-            【年額プラン】¥240,000（税込）／年　※月換算 ¥20,000<br>
-            【月額プラン】¥25,500（税込）／月
+            【月額プラン】月額 25,500円（税込）<br>
+            【年間プラン】月額 20,000円（税込）× 12ヶ月（総額 240,000円・税込）
           </td>
         </tr>
         <tr>
-          <td>支払い方法</td>
-          <td>クレジットカード（Square）／銀行振込／現金（店舗内）／請求書払い</td>
+          <td>お支払い方法</td>
+          <td>クレジットカード（Square）／銀行振込／請求書払い</td>
         </tr>
         <tr>
-          <td>支払い時期</td>
+          <td>お支払い時期</td>
           <td>
-            【年額プラン】契約開始月に一括前払い<br>
-            【月額プラン】毎月月初にお支払い
+            毎月1日にお支払いいただきます。クレジットカードの場合は、ご登録のカードから毎月1日に自動でお引き落としいたします。年間プランは12回目のお支払いをもって自動的に終了します。
           </td>
         </tr>
         <tr>
           <td>役務の提供時期</td>
-          <td>お申し込み・ご入金確認後、翌月1日または双方合意の日から提供開始</td>
+          <td>お申し込み・ご入金の確認後、翌月1日よりサービスを開始いたします。</td>
         </tr>
         <tr>
-          <td>解約・返品条件</td>
+          <td>最低契約期間</td>
+          <td>
+            【月額プラン】契約開始月を含む6ヶ月間<br>
+            【年間プラン】契約開始月を含む12ヶ月間
+          </td>
+        </tr>
+        <tr>
+          <td>中途解約</td>
           <td>
             <div class="alert-box">
-              <p><strong>【最低契約期間】</strong><br>契約開始月を含む6ヶ月間は解約不可。7ヶ月目以降から解約可能です。</p>
-              <p><strong>【解約申告】</strong><br>解約希望月の前月末日までにメールまたはLINEにてお申し出ください。</p>
-              <p><strong>【月額プランの中途解約】</strong><br>最低契約期間経過後は翌月末をもって解約できます。提供済み期間分の返金はいたしかねます。</p>
-              <p><strong>【年額プランの中途解約】</strong><br>基本的に中途解約による返金はございません。ただし、怪我・引退・移籍等アスリート特有のやむを得ない事由による解約の場合は、個別にご相談ください。</p>
-              <p><strong>【クーリングオフ】</strong><br>本サービスは訪問販売に該当しないため、クーリングオフ制度の適用はございません。ただし契約開始から8日以内にご連絡の場合は個別にご相談いたします。</p>
+              <p><strong>【最低契約期間内の解約】</strong><br>残存期間の月額料金の50%を解約手数料として申し受けます。ただし、傷病・引退・移籍・所属先の都合等によりサービスの継続が困難となった場合は、所定の証明書類のご提出により解約手数料を免除いたします。</p>
+              <p><strong>【最低契約期間経過後の解約】</strong><br>解約希望月の前月末日までにご連絡いただくことで、翌月より解約となります。</p>
+              <p><strong>【返金について】</strong><br>既にご提供済みの期間についての返金はいたしかねます。</p>
             </div>
           </td>
         </tr>
@@ -143,89 +136,190 @@ ul li{font-size:13px;color:#444;line-height:1.9;margin-bottom:4px;}
     </div>
 
     <!-- ShowRoom -->
+    <h3>ShowRoom — コンディショニングルーム（施術サービス）</h3>
     <div class="service-block">
-      <h4>ShowRoom — コンディショニングルーム（施術サービス）</h4>
       <table class="table">
         <tr>
-          <td>料金</td>
+          <td>販売価格</td>
           <td>
-            30分コース：¥2,500（税込）<br>
-            60分コース：¥4,900（税込）<br>
-            90分コース：¥8,900（税込）<br>
+            30分コース：2,500円（税込）<br>
+            60分コース：4,900円（税込）<br>
+            90分コース：8,900円（税込）<br>
             <small style="color:#888;">※初回限定半額キャンペーン実施中</small>
           </td>
         </tr>
         <tr>
-          <td>支払い方法</td>
-          <td>クレジットカード（Square）／現金</td>
+          <td>お支払い方法</td>
+          <td>現金（店舗内）／クレジットカード（Square）</td>
         </tr>
         <tr>
-          <td>支払い時期</td>
-          <td>施術当日にお支払い</td>
+          <td>お支払い時期</td>
+          <td>施術当日にお支払いいただきます。</td>
         </tr>
         <tr>
           <td>役務の提供時期</td>
-          <td>ご予約日当日に提供</td>
+          <td>ご予約日当日に提供いたします。</td>
         </tr>
         <tr>
-          <td>キャンセル条件</td>
-          <td>予約のキャンセルは前日までにLINEにてご連絡ください。施術後の返金はいたしかねます。</td>
+          <td>キャンセルについて</td>
+          <td>ご予約の前日までにLINEにてご連絡ください。キャンセル料は申し受けておりません。</td>
         </tr>
       </table>
     </div>
 
     <!-- ShowStage -->
+    <h3>ShowStage — ホームページ制作代行</h3>
     <div class="service-block">
-      <h4>ShowStage — スポーツトレーナー向けHP制作代行</h4>
       <table class="table">
         <tr>
-          <td>料金</td>
+          <td>販売価格</td>
           <td>
-            ¥49,800〜（税込）<br>
-            <small style="color:#888;">※プランにより異なります。詳細は<a href="showstage.html">ShowStageページ</a>をご確認ください。</small>
+            <strong>▼ 制作費（初期費用・買い切り）</strong><br>
+            ライトプラン：49,800円（税込）<br>
+            スタンダードプラン：79,800円（税込）<br>
+            プレミアムプラン：119,800円（税込）<br>
+            ページ追加・個別機能の実装等は別途お見積りとなります。<br><br>
+            <strong>▼ 公開・運用代行（月額・任意）</strong><br>
+            ライトプラン：月額 4,980円（税込）<br>
+            スタンダードプラン：月額 5,480円（税込）<br>
+            プレミアムプラン：月額 6,980円（税込）
           </td>
         </tr>
         <tr>
-          <td>支払い方法</td>
-          <td>銀行振込／クレジットカード（Square）／請求書払い</td>
+          <td>商品代金以外に<br>必要な費用</td>
+          <td>
+            独自ドメインを取得される場合の取得・更新費用（年額1,000円〜5,000円程度）はお客様のご負担となります。無料のサブドメインをご利用の場合、この費用は発生しません。サーバー費用は月額費用に含まれます。
+          </td>
         </tr>
         <tr>
-          <td>支払い時期</td>
-          <td>着手金（料金の50%）：契約締結後にお支払い<br>残金（料金の50%）：納品完了後にお支払い</td>
+          <td>お支払い方法</td>
+          <td>クレジットカード（Square）／銀行振込／請求書払い</td>
+        </tr>
+        <tr>
+          <td>お支払い時期</td>
+          <td>
+            【制作費】ご契約時に着手金として50%、納品時に残額50%<br>
+            【月額費用】サイト公開の翌月より毎月1日（自動継続課金）
+          </td>
         </tr>
         <tr>
           <td>役務の提供時期</td>
           <td>
-            着手金ご入金確認後3営業日以内に制作着手<br>
-            ヒアリング〜初稿提示：約2〜4週間<br>
-            修正対応〜最終納品：初稿提示後約1〜2週間<br>
-            <small style="color:#888;">※内容の複雑さや修正回数により変動する場合があります。</small>
+            ご入金確認後3営業日以内に制作着手、約2〜4週間で初稿をご提示。修正対応を経て、初稿ご提示から1〜2週間でHTMLファイル一式を納品いたします。公開・運用代行をご利用の場合、納品後5営業日以内に公開いたします。<br>
+            <small style="color:#888;">※お客様からの素材・原稿のご提供が遅れた場合、納期は延長されます。</small>
           </td>
         </tr>
         <tr>
-          <td>キャンセル・返金</td>
+          <td>最低契約期間</td>
+          <td>【月額プラン】契約開始月を含む3ヶ月間</td>
+        </tr>
+        <tr>
+          <td>解約・返品</td>
           <td>
-            制作着手前のキャンセル：着手金の50%を手数料として申し受けます。<br>
-            制作着手後のキャンセル：着手金は返金いたしかねます。<br>
-            納品後の返金はいたしかねます。
+            <div class="alert-box">
+              <p><strong>【制作費のキャンセル】</strong><br>
+              ヒアリング完了後：制作費の30%<br>
+              初稿ご提示後：制作費の50%<br>
+              修正2回目以降：返金不可<br>
+              納品後の返品・返金はお受けできません。</p>
+              <p><strong>【月額プランの中途解約】</strong><br>
+              最低契約期間内の解約は、残存期間の月額料金の50%を解約手数料として申し受けます。4ヶ月目以降は、解約希望月の前月末日までにご連絡いただくことで翌月より解約となります。</p>
+              <p><strong>【解約後のお取り扱い】</strong><br>
+              月額プランを解約された場合、当社が管理するホスティング上での公開は停止いたします。納品済みのHTMLファイル一式はお客様の資産ですので、解約後もお客様ご自身での公開・運用が可能です。</p>
+            </div>
           </td>
         </tr>
       </table>
     </div>
 
+    <!-- 育成プロジェクト -->
+    <h3>育成プロジェクト — トレーナー育成・現場帯同プログラム</h3>
+    <div class="service-block">
+      <table class="table">
+        <tr>
+          <td>販売価格</td>
+          <td>
+            年間 440,000円（税込）<br>
+            <small style="color:#888;">※次年度以降は渡航費用の変動により改定する場合があります。</small>
+          </td>
+        </tr>
+        <tr>
+          <td>商品代金以外に<br>必要な費用</td>
+          <td>
+            遠征時の宿泊費の50%をご負担いただきます。<br>
+            目安：年間 40,000円〜120,000円程度（渡航先・遠征回数・滞在期間により変動）<br>
+            目安を大きく超える見込みの場合は、手配前にご連絡しご了承をいただいたうえで手配いたします。<br>
+            このほか、パスポート取得費用・海外旅行保険料・個人的な費用は参加者のご負担となります。
+          </td>
+        </tr>
+        <tr>
+          <td>お支払い方法</td>
+          <td>銀行振込（振込手数料はお客様のご負担）</td>
+        </tr>
+        <tr>
+          <td>お支払い時期</td>
+          <td>プログラム開始前に一括でお振り込みいただきます。宿泊費のご負担分は各遠征終了後にご請求いたします。</td>
+        </tr>
+        <tr>
+          <td>役務の提供時期</td>
+          <td>ご入金確認後、1年間にわたり提供いたします。期間中、現場帯同・実地研修等の育成機会を10〜15回程度設ける予定です。</td>
+        </tr>
+        <tr>
+          <td>定員</td>
+          <td>5名（定員に達し次第、募集を締め切ります）</td>
+        </tr>
+        <tr>
+          <td>キャンセル・返金</td>
+          <td>
+            <div class="alert-box">
+              <p><strong>【プログラム開始前】</strong><br>
+              航空券等の手配前：全額返金（振込手数料を除く）<br>
+              航空券等の手配後：手配済みの実費を差し引いた金額を返金</p>
+              <p><strong>【プログラム開始後】</strong><br>
+              中途離脱については参加費の返金はいたしかねます。ただし傷病等によりプログラムの継続が困難となった場合は、所定の証明書類のご提出により未実施の遠征に係る費用をご返金いたします。</p>
+              <p><strong>【プログラムの中止・変更】</strong><br>
+              天災、渡航制限、大会の中止その他当社の責によらない事由により遠征が中止または変更となった場合は、代替プログラムのご提供または未実施分に相当する費用のご返金により対応いたします。</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ShowBase -->
+    <h3>ShowBase — スポーツ用品・テーピング等の商品販売</h3>
+    <div class="service-block">
+      <div class="info-block">
+        ShowBaseの商品は、BASEにて販売しております。お取引条件（送料・返品特約等）は、BASEショップ内の「特定商取引法に基づく表記」をご確認ください。<br><br>
+        BASEショップ：<a href="https://showtime1108.shopselect.net" target="_blank" style="color:#c9a00a;">showtime1108.shopselect.net</a>
+      </div>
+      <p style="font-size:12px;color:#888;margin:0;">参考：送料は全国一律550円（税込）です。</p>
+    </div>
+
+    <!-- クーリングオフ -->
+    <h3>クーリング・オフについて</h3>
+    <div class="alert-box">
+      <p><strong>【通信販売・オンラインからのお申し込み】</strong><br>
+      当ウェブサイトまたはオンラインからのお申し込みは、特定商取引法上の「通信販売」に該当し、クーリング・オフ制度の適用はありません。返品・解約については上記の各サービスの条件に従います。</p>
+      <p><strong>【当社事務所・店舗でのご契約】</strong><br>
+      当社事務所または当社店舗においてご契約いただいた場合も同様に、クーリング・オフ制度の適用はありません。</p>
+      <p><strong>【上記以外の場所でのご契約】</strong><br>
+      遠征先・練習施設・ご自宅等において当社からお声がけのうえご契約いただいた場合は、特定商取引法上の「訪問販売」に該当し、法定書面をお受け取りになった日から8日間はクーリング・オフが可能です。</p>
+    </div>
+
   </div>
 
-  <!-- プライバシーポリシー -->
+  <!-- ============================
+       プライバシーポリシー
+       ============================ -->
   <div class="section" id="privacy">
     <div class="section-id">Privacy Policy</div>
     <div class="section-title">プライバシーポリシー</div>
-    <div class="section-updated"><span>2025年制定</span>個人情報の取り扱いについて定めます。</div>
+    <div class="section-updated"><span>2026年9月制定</span>個人情報の取り扱いについて定めます。</div>
 
     <h3>1. 事業者情報</h3>
     <p>株式会社Showtime（以下「当社」）は、お客様の個人情報保護を重要な責務と考え、以下の方針に従って適切に取り扱います。</p>
 
     <h3>2. 収集する個人情報</h3>
-    <p>当社は、サービスの提供にあたり以下の情報を取得する場合があります。</p>
     <ul>
       <li>氏名、年齢、性別</li>
       <li>メールアドレス、電話番号</li>
@@ -262,20 +356,21 @@ ul li{font-size:13px;color:#444;line-height:1.9;margin-bottom:4px;}
     <p>当社ウェブサイトでは、サービス改善のためCookieを使用する場合があります。ブラウザの設定によりCookieを無効にすることができますが、一部のサービスが利用できなくなる場合があります。</p>
 
     <h3>8. お問い合わせ</h3>
-    <p>プライバシーポリシーに関するお問い合わせは以下までご連絡ください。</p>
     <p>電話：080-4535-7690<br>
     メール：<a href="mailto:11showtime08@gmail.com" style="color:#c9a00a;">11showtime08@gmail.com</a><br>
     LINE：<a href="https://line.me/R/ti/p/@876iwzkb" style="color:#c9a00a;">@876iwzkb</a></p>
   </div>
 
-  <!-- 利用規約 -->
+  <!-- ============================
+       利用規約
+       ============================ -->
   <div class="section" id="terms">
     <div class="section-id">Terms of Service</div>
     <div class="section-title">利用規約</div>
-    <div class="section-updated"><span>2025年制定</span>サービスご利用にあたりご確認ください。</div>
+    <div class="section-updated"><span>2026年9月制定</span>サービスご利用にあたりご確認ください。</div>
 
     <h3>第1条（適用）</h3>
-    <p>本規約は、株式会社Showtime（以下「当社」）が提供するShowUp・ShowRoom・ShowStageその他のサービス（以下「本サービス」）の利用に関し、当社とお客様との間に適用されます。</p>
+    <p>本規約は、株式会社Showtime（以下「当社」）が提供するShowUp・ShowRoom・ShowStage・育成プロジェクトその他のサービス（以下「本サービス」）の利用に関し、当社とお客様との間に適用されます。</p>
 
     <h3>第2条（利用登録・申し込み）</h3>
     <p>本サービスへの申し込みは、当社所定の方法により行うものとします。当社が申し込みを承諾した時点で、利用契約が成立します。</p>
@@ -284,7 +379,6 @@ ul li{font-size:13px;color:#444;line-height:1.9;margin-bottom:4px;}
     <p>お客様は、当社が定める料金を所定の支払い方法にてお支払いいただきます。料金は予告なく変更される場合があり、変更時は事前にご連絡します。</p>
 
     <h3>第4条（禁止事項）</h3>
-    <p>お客様は以下の行為をしてはなりません。</p>
     <ul>
       <li>法令または公序良俗に違反する行為</li>
       <li>当社または第三者の権利・財産を侵害する行為</li>
@@ -313,7 +407,7 @@ ul li{font-size:13px;color:#444;line-height:1.9;margin-bottom:4px;}
 </div>
 
 <div class="page-footer">
-  <p>© 2025 株式会社Showtime. All rights reserved.</p>
+  <p>© 2026 株式会社Showtime. All rights reserved.</p>
   <a href="index.html">トップへ戻る</a>
 </div>
 
